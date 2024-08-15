@@ -53,3 +53,7 @@ export interface IOrder {
 export interface IProductCardProps {
     product: IProduct;
 }
+
+export interface IProductsContainerProps {
+    products: IProduct[];
+}
