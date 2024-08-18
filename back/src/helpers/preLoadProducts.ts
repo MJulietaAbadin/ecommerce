@@ -63,7 +63,7 @@ const productsToPreLoad: IProduct[] = [
     stock: 40,
   },
   {
-    name: "CONTRAST TRIM SCOOP NECK BODYSUIT",
+    name: "CONTRAST BODYSUIT",
     price: 59,
     description:
       "First-place style, second-skin comfort. This sporty bodysuit comfortably enhances your curves thanks to our beloved buttery fabric that is soft and stretchy beyond compare. Features contrast trim along the sexy scoop neck, adjustable straps, sides, and legs. Complete with a 100% cotton gusset that snaps. Fits true to size.",
@@ -73,7 +73,7 @@ const productsToPreLoad: IProduct[] = [
     stock: 40,
   },
   {
-    name: "CONTRAST TRIM T-SHIRT BODYSUIT",
+    name: "CONTRAST T-SHIRT BODYSUIT",
     price: 63,
     description:
       "Sporty, smooth, stylish bodysuit that a major win for your wardrobe. This curve-hugging bodysuit flatters your figure with our stretchy, five-star fabric that feels like butter. Elevated with contrast details at the crew neck, short sleeves, sides, and leg openings. Features a thong back with snaps at the 100% cotton gusset. Fits true to size.",
@@ -83,7 +83,7 @@ const productsToPreLoad: IProduct[] = [
     stock: 30,
   },
   {
-    name: "ESSENTIAL CREW NECK SLEEVELESS BODYSUIT",
+    name: "CREW NECK SLEEVELESS BODYSUIT",
     price: 69,
     description:
       "This crew neck sleeveless bodysuit lightly contours your body while being comfortable for all-day wear. Features a raw cut neckline, double snap closure at the bottom gusset, and a thong back for no panty lines. Fits true to size.",
@@ -93,7 +93,7 @@ const productsToPreLoad: IProduct[] = [
     stock: 30,
   },
   {
-    name: "ESSENTIAL SCOOP NECK BODYSUIT",
+    name: "SCOOP NECK BODYSUIT",
     price: 69,
     description:
       "This curve-hugging scoop neck bodysuit is a comfortable, smoothing staple that you’ll keep reaching for. Features a wide double scoop neckline, thin shoulder straps, a double snap closure at the bottom gusset, and a brief back for moderate coverage. Fits true to size.",
@@ -173,7 +173,7 @@ const productsToPreLoad: IProduct[] = [
     stock: 40,
   },
   {
-    name: "LOW BACK MID THIGH BODYSUIT",
+    name: "LOW BACK BODYSUIT",
     price: 75,
     description:
       "A sculpting bodysuit that sculpts silhouette, cinches waist, and smooth thighs while providing support and lift for your curves. Featuring a deep scoop back that makes it the perfect backless shapewear option.",
@@ -273,7 +273,7 @@ const productsToPreLoad: IProduct[] = [
     stock: 20,
   },
   {
-    name: "DEEP PLUNGE HALTER LONG DRESS",
+    name: "DEEP PLUNGE LONG DRESS",
     price: 85,
     description:
       "The hottest halter dress. This full-length style flatters your figure with its fitted silhouette and sexy, deep-v neckline. Designed in our incredibly soft, stretchy ribbed modal fabric that effortlessly drapes over your body. Pairs perfectly with our Seamless Sculpt Plunge Thong Bodysuit or Plunge Short Bodysuit for a sculpted finish. Fits true to size.",
@@ -363,7 +363,7 @@ const productsToPreLoad: IProduct[] = [
     stock: 10,
   },
   {
-    name: "MOCK NECK LONG SLEEVE LONG DRESS",
+    name: "LONG SLEEVE LONG DRESS",
     price: 89,
     description:
       "Turn heads when you head out in this dress. This sheer style glides over your curves with its silky-smooth, stretchy fabric. Features a sexy, fitted silhouette that hits the floor and a mock neck. Detailed with raw edges at the long sleeves and hem. Layer with coordinating Fits Everybody styles for a tonal look. Fits true to size.",
@@ -663,7 +663,7 @@ const productsToPreLoad: IProduct[] = [
     stock: 23,
   },
   {
-    name: "MATERNITY PUMPING SCOOP BRALETTE",
+    name: "PUMPING SCOOP BRALETTE",
     price: 38,
     description:
       "This ultra-soft, scoop neck bralette accommodates nursing women with multi-use front clasps and 2-ply construction. Leave the interior layer hooked for hands-free pumping. Features fully adjustable straps. Fits true to size.",
@@ -673,7 +673,7 @@ const productsToPreLoad: IProduct[] = [
     stock: 30,
   },
   {
-    name: "MATERNITY HIGH-WAISTED LEGGING",
+    name: "HIGH-WAISTED LEGGING",
     price: 67,
     description:
       "A maternity must-have. This wear-everywhere style redefines comfort with our addictively soft, second skin fabric that stretches with your growing belly – without losing its shape. Features a 2-ply construction to prevent sheerness and a high-rise, elastic waist. Fits true to size.",
@@ -683,7 +683,7 @@ const productsToPreLoad: IProduct[] = [
     stock: 30,
   },
   {
-    name: "MATERNITY NURSING TANK",
+    name: "NURSING TANK",
     price: 50,
     description:
       "This scoop neck tank is made with our signature buttery-soft fabric that stretches to twice its size and has a 2-ply construction. Features clasps at the adjustable front straps to unhook for easy nursing and pumping. The built-in shelf bra with elastic at the underbust and additional side fabric provide extra comfort and support. Fits true to size.",
@@ -713,7 +713,7 @@ const productsToPreLoad: IProduct[] = [
     stock: 10,
   },
   {
-    name: "MATERNITY BANDED HIGH-WAISTED BRIEF",
+    name: "BANDED HIGH-WAISTED BRIEF",
     price: 29,
     description:
       "A high-waist maternity brief with a soft, supportive elastic waistband and comfortable non-compressive core for your growing baby bump. Features a flexible foldover band for support, an 100% cotton gusset, and full brief back coverage. Fits true to size.",
@@ -723,7 +723,7 @@ const productsToPreLoad: IProduct[] = [
     stock: 30,
   },
   {
-    name: "MATERNITY HIGH-WAISTED BRIEF",
+    name: "HIGH-WAISTED BRIEF",
     price: 28,
     description:
       "The best brief for you and your belly. This high-waisted panty is made with our five-star, buttery fabric that comfortably molds to your body and stretches to twice its size, allowing for a growing baby bump. Features a full, maximum coverage bottom and a cotton gusset. Fits true to size.",
@@ -733,7 +733,7 @@ const productsToPreLoad: IProduct[] = [
     stock: 10,
   },
   {
-    name: "MATERNITY HIGH-WAISTED THONG",
+    name: "HIGH-WAISTED THONG",
     price: 26,
     description:
       "The comfort you crave for your growing baby without the panty lines. Made with a single layer of our top-rated, buttery Fits Everybody fabric, this high-waisted thong stretches to twice its size to comfortably accommodate your growing baby bump without feeling constrictive. Features a cotton gusset. Fits true to size.",
@@ -743,7 +743,7 @@ const productsToPreLoad: IProduct[] = [
     stock: 40,
   },
   {
-    name: "MATERNITY HIGH-WAISTED BRIEF 2-PACK",
+    name: "HIGH-WAISTED BRIEF 2-PACK",
     price: 48,
     description:
       "Your belly’s perfect pair. This pack of maternity panties fits like a second skin for unparalleled pre- and post-natal comfort. Made with our signature fabric that feels like butter and stretches to twice its size to allow space for a growing baby bump. Features a high rise with medium coverage and a 100% cotton gusset. Fits true to size.",

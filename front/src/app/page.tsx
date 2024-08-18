@@ -1,7 +1,12 @@
-import Image from "next/image";
+import LandingComponent from "@/components/LandingComponent";
+import backgroundImage from "../../public/landingBackground.jpg"
 
-export default function Home() {
+
+export default function LandingPage() {
   return (
-    <h1>hola</h1>
+    <div className="bg-cover bg-center h-screen "
+      style={{ backgroundImage: `url(${backgroundImage.src})` }}>
+      <LandingComponent/>
+    </div>
   );
 }
