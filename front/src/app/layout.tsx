@@ -21,10 +21,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={palanquin.className}>
-        <NavBar/>
-        {children}
-        <Footer/>
+      <body className={palanquin.className + " flex flex-col min-h-screen"}>
+        <NavBar />
+        <main className="flex-grow">{children}</main>
+        <Footer />
       </body>
     </html>
   );

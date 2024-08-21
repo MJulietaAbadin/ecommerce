@@ -10,8 +10,8 @@ export default function Footer() {
         <div className="ps-4">{linkedinIcon}</div>
       </div>
       <div>
-        <p className="text-center text-sm">
-          ©2024 - Todos los derechos reservados
+        <p className="text-center text-sm ">
+          ©2024 - All rights reserved
         </p>
       </div>
       <div className="text-end pe-8">

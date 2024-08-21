@@ -1,7 +1,8 @@
 "use client";
 import React, { useState } from "react";
 import Link from "next/link";
-import { cartIcon, heartIcon } from "@/helpers/icons";
+import { cartIcon } from "@/helpers/icons";
+
 export default function NavBar() {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -11,9 +12,9 @@ export default function NavBar() {
 
   return (
     <>
-      <div className="border-b border-black flex h-16 items-center justify-between px-4">
+      <div className="fixed top-0 left-0 right-0 border-b border-black bg-white z-50 flex h-16 items-center justify-between px-4">
         <div className="flex-1">
-          <h1 className="font-bold text-2xl ">Malabis</h1>
+          <h1 className="font-bold text-2xl">Malabis</h1>
         </div>
         <div className="md:hidden">
           <button onClick={toggleMenu} type="button" className="text-black">
@@ -43,68 +44,35 @@ export default function NavBar() {
           </button>
         </div>
         <div className="hidden md:flex flex-1 justify-end w-1/2">
-          <ul className="flex text-sm ">
+          <ul className="flex text-sm">
             <li className="flex pe-10 font-medium hover:underline">
-              Categories
+              <Link href={"/home"}>Home</Link>
             </li>
-            <li className="pe-10 font-medium hover:underline">Sign In</li>
-            <li className="pe-10 font-medium hover:underline">Sign Up</li>
-            <li className="pe-10 font-medium">{heartIcon}</li>
-            <li className="pe-10 font-medium">{cartIcon}</li>
+            <li className="pe-10 font-medium hover:underline">
+              <Link href={"/user-dashboard"}>User Dashboard</Link>
+            </li>
+            <li className="pe-10 font-medium">
+              <Link href={"/cart"}>{cartIcon}</Link>
+            </li>
           </ul>
         </div>
       </div>
       {isOpen && (
-        <div className="md:hidden">
+        <div className="fixed top-16 left-0 right-0 bg-white z-50 md:hidden">
           <ul className="flex flex-col items-start p-4 space-y-2">
-            <li className="font-medium hover:underline">Categories</li>
-            <li className="font-medium hover:underline">Sign In</li>
-            <li className="font-medium hover:underline">Sign Up</li>
-            <li className="font-medium hover:underline">Favorites</li>
-            <li className="font-medium hover:underline">View Cart</li>
+            <li className="font-medium hover:underline">
+              <Link href={"/home"}>Home</Link>
+            </li>
+            <li className="font-medium hover:underline">
+              <Link href={"/user-dashboard"}>User Dashboard</Link>
+            </li>
+            <li className="font-medium hover:underline">
+              <Link href={"/cart"}>View Cart</Link>
+            </li>
           </ul>
         </div>
       )}
     </>
   );
 }
-/* 
-        <div className=' w-1/2 flex justify-end ' >
-        <ul className='flex' >
-            <li className='flex pe-10 font-medium'> <div className='pe-2'>{categoryIcon}</div>Categories</li>
-            <li className='pe-10 font-medium' >Sign In</li>
-            <li className='pe-10 font-medium'>Sign Up</li>
-            <li className='pe-10 font-medium'>{heartIcon}</li>
-            <li className='pe-10 font-medium'>{cartIcon}</li>
-        </ul>
-        </div>  */
 
-/* <div className=' flex h-16 items-center border-b border-black'>
-        <div className='w-1/2 ps-10'>
-        <h1 className='font-bold text-2xl'>Malabis</h1>
-        </div>
-        <div className=' w-1/2 flex justify-end ' >
-        <ul className='flex' >
-            <li className='flex pe-10 font-medium'> <div className='pe-2'>{categoryIcon}</div>Categories</li>
-            <li className='pe-10 font-medium' >Sign In</li>
-            <li className='pe-10 font-medium'>Sign Up</li>
-            <li className='pe-10 font-medium'>{heartIcon}</li>
-            <li className='pe-10 font-medium'>{cartIcon}</li>
-        </ul>
-        </div>
-    </div> */
-
-/*  <div className=''>
-        <div className=''>
-        <h1 className=''>Malabis</h1>
-        </div>
-        <div className='' >
-        <ul className='' >
-            <li className=''> <div className=''>{categoryIcon}</div>Categories</li>
-            <li className='' >Sign In</li>
-            <li className=''>Sign Up</li>
-            <li className=''>{heartIcon}</li>
-            <li className=''>{cartIcon}</li>
-        </ul>
-        </div>
-    </div> */

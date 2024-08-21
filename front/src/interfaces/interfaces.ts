@@ -57,3 +57,19 @@ export interface IProductCardProps {
 export interface IProductsContainerProps {
     products: IProduct[];
 }
+
+export interface ITitleProp{
+    title: string
+}
+
+export interface IButtonPrompt {
+    href: string
+    content: string
+}
+export interface IRegisterForm{
+    email: string
+    password: string
+    name: string
+    address: string
+    phone: string
+}

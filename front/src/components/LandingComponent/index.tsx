@@ -1,22 +1,28 @@
-import Link from "next/link";
 import React from "react";
-import backgroundImage from "../../../public/landingBackground.jpg";
+import Button from "../Button";
 
 export default function LandingComponent() {
   return (
-    <>
-        <div className="h-full flex flex-col justify-center ms-40">
-        <div className="w-1/3  mb-4  ">
-            <h1 className="font-bold text-4xl tracking-widest">WHERE STYLE MEETS COMFORT.</h1>
+    <div className="bg-landing bg-cover bg-center h-screen sm:ps-10 ">
+      <div className="flex flex-col items-start justify-center min-h-screen  py-10 px-4">
+        <div className="text-left mb-6 max-w-xl">
+          <h1 className="font-bold text-3xl md:text-4xl lg:text-5xl leading-tight">
+            WHERE STYLE MEETS COMFORT.
+          </h1>
         </div>
-        <div className="bg-black w-28 text-center rounded p-2 hover:bg-neutral-950">
-            <Link href={"/home"}>
-            <button className="text-xs text-white">SHOP NOW</button>
-            </Link>
-        </div>
-        </div>
-    </>
+        <Button href="/home" content="SHOP NOW" />
+      </div>
+    </div>
   );
 }
 
+{/* <>
+<div className="flex flex-col justify-end h-screen ps-10 pb-28 bg-gradient-to-b from-white to-zinc-300 ">
+  <div className=" w-1/3 mb-4">
+    <h1 className="font-bold text-4xl tracking-widest">WHERE STYLE MEETS COMFORT.</h1>
+  </div>
+  <Button href="/home" content='SHOP NOW' />
+
+</div>
+</> */}
 
