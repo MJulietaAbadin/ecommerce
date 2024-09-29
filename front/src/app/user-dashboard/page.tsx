@@ -1,10 +1,10 @@
-import UserDashboardComponent from '@/components/UserDashboardComponent'
-import React from 'react'
+import UserDashboardComponent from "@/components/UserDashboardComponent";
+
 
 export default function UserDashboard() {
   return (
     <div>
-        <UserDashboardComponent/>
+<UserDashboardComponent/>
     </div>
   )
 }

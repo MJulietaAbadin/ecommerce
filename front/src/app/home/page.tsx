@@ -1,12 +1,15 @@
-import ProductsContainer from '@/components/ProductsGrid'
-import React from 'react'
-import bodysuits from '@/helpers'
+import { fetchProducts } from '@/lib/server/fetchProducts'
+import ProductsGrid from '@/components/ProductsGrid'
+import { IProduct } from '@/interfaces/interfaces'
 import Title from '@/components/Title'
-export default function Home() {
+import Carousel from '@/components/Carousel'
+export default async function Home() {
+  const products = await fetchProducts()
   return (
-    <div className='pb-10'>
-      <Title title="Products" />
-      <ProductsContainer products={bodysuits}/>
+    <div className='mt-16'>
+        <Carousel/>
+        <ProductsGrid products={products} title='Products'/>
     </div>
   )
 }
+

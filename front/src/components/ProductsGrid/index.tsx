@@ -1,14 +1,23 @@
-import { IProduct, IProductsContainerProps } from '@/interfaces/interfaces'
-import React from 'react'
-import ProductCard from '../ProductCard'
+import { IProduct, IProductsGridProps } from '@/interfaces/interfaces';
+import React from 'react';
+import ProductCard from '../ProductCard';
+import Title from '../Title';
 
-export default function ProductsContainer({products} : IProductsContainerProps) {
-    return (
-        <div className='grid gap-y-10 px-20 justify-items-center  sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-7 '>
+export default function ProductsGrid({ products, title }: IProductsGridProps) {
+  return (
+    <div className="flex flex-col items-center pb-9">
+      <div className="mb-5 w-2/3 text-left mt-16">
+        <Title title={title} />
+      </div>
+      {products && products.length > 0 ? (
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-14">
           {products.map((product: IProduct) => (
-            <ProductCard product={product} key={product.id} />
+            <ProductCard key={product.id} product={product} />
           ))}
         </div>
-      );
-    }
-    
+      ) : (
+        <p>No products available</p>
+      )}
+    </div>
+  );
+}

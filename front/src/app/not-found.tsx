@@ -4,10 +4,10 @@ import React from 'react'
 
 export default function NotFound() {
   return (
-    <div className=" h-screen w-screen flex flex-col justify-center items-center">
+    <div className=" h-screen w-screen flex flex-col justify-center items-center text-white">
         {notFoundIcon}
-        <h2 className="text-3xl pb-5 pt-3">Page not found</h2>
-        <Link href="/home" className='text-zinc-800'>Click here to return to the home page</Link>
+        <h2 className="text-3xl">Page not found</h2>
+        <Link href="/home" className='text-zinc-800 text-pageColor'>Click here to return to the home page</Link>
     </div>
   )
 }

@@ -1,13 +1,25 @@
 import type { Metadata } from "next";
-import { Palanquin } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
-import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
+import NavBar from "@/components/NavBar";
+import { Manrope } from "next/font/google";
+import { CartProvider } from "@/context/cart";
+import { UserProvider } from "@/context/user";
+import { Noto_Sans_Hebrew } from "next/font/google";
 
-const palanquin = Palanquin({
-  subsets: ['latin'],
-  weight: ['400', '500', '600', '700'] 
+const notoSansHebrew = Noto_Sans_Hebrew({
+  subsets: ['hebrew'],
+  weight: ['200', '400', '500', '600', '700'] ,
 });
+
+
+const manrope = Manrope({
+  subsets: ['latin'],
+  weight: ['200', '400', '500', '600', '700'] 
+});
+
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -21,10 +33,16 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={palanquin.className + " flex flex-col min-h-screen"}>
-        <NavBar />
-        <main className="flex-grow">{children}</main>
-        <Footer />
+      <body className={`${notoSansHebrew.className} flex flex-col min-h-screen bg-zinc-100 relative`}>
+        <UserProvider>
+          <CartProvider>
+            <NavBar />
+            <main className="flex-1 pb-60 relative">
+              {children}
+            </main>
+            <Footer />
+          </CartProvider>
+        </UserProvider>
       </body>
     </html>
   );

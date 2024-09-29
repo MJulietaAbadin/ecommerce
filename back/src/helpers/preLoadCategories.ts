@@ -7,15 +7,10 @@ interface ICategory {
 }
 
 const categoriesToPreLoad: ICategory[] = [
-    { name: 'Tees' },
-    { name: 'Dresses' },
-    { name: 'Leggins & Pants' },
-    { name: 'Shorts' },
-    { name: 'Catsuits & Onesies' },
-    { name: 'Pajamas' },
-    { name: 'Bodysuits' },
-    { name: 'Hoddies & Sweatshirts' },
-    { name: 'Maternity' }
+    { name: 'Iphones' },
+    { name: 'Laptops' },
+    { name: 'Tablets' },
+    { name: 'Accesories' }
 ];
 
 export const preLoadCategories = async () => {

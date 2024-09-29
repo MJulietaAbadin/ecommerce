@@ -1,0 +1,5 @@
+/* carousel.css */
+.embla__container {
+    transition: transform 0.7s ease-in-out; 
+  }
+  

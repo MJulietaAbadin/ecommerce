@@ -1,4 +1,6 @@
 import type { Config } from "tailwindcss";
+import withMT from "@material-tailwind/react/utils/withMT";
+
 const config: Config = {
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
@@ -7,16 +9,21 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      spacing: {
-        '200': '200px',
-      },
       backgroundImage: {
-        'landing': "url('/landing2.jpg')",
+        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
+        "gradient-conic":
+          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      colors: {
+        pageColor: '#7916FF',
+        pageColorHover: '#5111a1',
+        logOutButton: '#B50000',
+        logOutButtonHover: '#940808',
+        
+      }
     },
   },
   plugins: [],
 };
 
-
-export default config;
+export default withMT(config);

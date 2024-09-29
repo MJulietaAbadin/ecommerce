@@ -1,20 +1,38 @@
 "use client";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import Link from "next/link";
-import { cartIcon } from "@/helpers/icons";
+import { cartIcon, userIcon } from "@/helpers/icons";
+import { UserContext } from "@/context/user";
+import Logo from "../Logo";
+import { categoriesToPreload } from "@/helpers/categories";
 
 export default function NavBar() {
+  const { isLogged } = useContext(UserContext);
   const [isOpen, setIsOpen] = useState(false);
+  const [isCategoriesOpen, setIsCategoriesOpen] = useState(false);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
 
+  const toggleCategories = () => {
+    setIsCategoriesOpen(!isCategoriesOpen); 
+  };
+
+  const handleCategoryClick = () => {
+    setIsCategoriesOpen(false); // Cierra el menú de categorías
+    if (isOpen) {
+      setIsOpen(false); // Cierra el menú si está abierto
+    }
+  };
+
   return (
     <>
-      <div className="fixed top-0 left-0 right-0 border-b border-black bg-white z-50 flex h-16 items-center justify-between px-4">
-        <div className="flex-1">
-          <h1 className="font-bold text-2xl">Malabis</h1>
+      <div className="fixed w-full z-50 bg-transparent backdrop-blur-sm text-white border-black flex h-16 items-center justify-between px-4">
+        <div className="ps-10">
+          <Link href={"/"}>
+            <Logo w={60} h={60} />
+          </Link>
         </div>
         <div className="md:hidden">
           <button onClick={toggleMenu} type="button" className="text-black">
@@ -43,36 +61,95 @@ export default function NavBar() {
             </svg>
           </button>
         </div>
-        <div className="hidden md:flex flex-1 justify-end w-1/2">
-          <ul className="flex text-sm">
-            <li className="flex pe-10 font-medium hover:underline">
-              <Link href={"/home"}>Home</Link>
+        <div className="hidden md:flex justify-center ">
+          <ul className="flex text-sm font-bold">
+            <li className="flex me-10 font-medium">
+              <Link  className="transition duration-300 ease-in-out hover:text-pageColor" href={"/home"}>HOME</Link>
             </li>
-            <li className="pe-10 font-medium hover:underline">
-              <Link href={"/user-dashboard"}>User Dashboard</Link>
+            <li className="pe-10 font-medium relative">
+              <button onClick={toggleCategories}  className="transition duration-300 ease-in-out hover:text-pageColor">
+                CATEGORIES
+              </button>
+              {isCategoriesOpen && (
+                <ul className="absolute bg-gray-900 text-white mt-2 p-2 shadow-md rounded-md">
+                  {categoriesToPreload && categoriesToPreload.map((category) => (
+                    <li className="hover:bg-pageColor px-4 py-2" key={category.id}>
+                      <Link href={`/products/${category.id}`} onClick={handleCategoryClick}>{category.name}</Link>
+                    </li>
+                  ))}
+                </ul>
+              )}
             </li>
-            <li className="pe-10 font-medium">
-              <Link href={"/cart"}>{cartIcon}</Link>
+            <li className="flex font-medium">
+              <Link
+                href={"/contact"}
+                className="transition duration-300 ease-in-out hover:text-pageColor"
+              >
+                CONTACT
+              </Link>
             </li>
           </ul>
         </div>
+        <div className="hidden md:flex justify-end">
+          {isLogged ? (
+            <ul className="flex text-sm">
+              <li className="flex pe-10 font-medium hover:underline">
+                <Link href={"/cart"} className="group text-white transition duration-300 ease-in-out hover:text-pageColor">
+                  {cartIcon}
+                </Link>
+              </li>
+
+              <li className="flex pe-10 font-medium hover:underline">
+                <Link className="group text-white transition duration-300 ease-in-out hover:text-pageColor" href={"/user-dashboard"}>{userIcon}</Link>
+              </li>
+            </ul>
+          ) : (
+            <ul className="flex text-sm">
+              <li className="flex pe-10 font-medium hover:underline">
+                <Link href={"/login"}>{userIcon}</Link>
+              </li>
+            </ul>
+          )}
+        </div>
       </div>
       {isOpen && (
-        <div className="fixed top-16 left-0 right-0 bg-white z-50 md:hidden">
+        <div className="fixed top-16 left-0 right-0 bg-gray-900 text-white z-50 md:hidden">
           <ul className="flex flex-col items-start p-4 space-y-2">
             <li className="font-medium hover:underline">
-              <Link href={"/home"}>Home</Link>
+              <Link href={"/home"}>HOME</Link>
             </li>
             <li className="font-medium hover:underline">
-              <Link href={"/user-dashboard"}>User Dashboard</Link>
+              <button onClick={toggleCategories}>CATEGORIES</button>
+              {isCategoriesOpen && (
+                <ul className="ml-4 mt-2">
+                  {categoriesToPreload && categoriesToPreload.map((category) => (
+                    <li className="hover:underline" key={category.id}>
+                      <Link href={`/products/${category.id}`} onClick={handleCategoryClick}>{category.name}</Link>
+                    </li>
+                  ))}
+                </ul>
+              )}
             </li>
             <li className="font-medium hover:underline">
-              <Link href={"/cart"}>View Cart</Link>
+              <Link href={"/contact"}>CONTACT</Link>
             </li>
+            {isLogged ? (
+              <>
+                <li className="font-medium hover:underline">
+                  <Link href={"/cart"}>CART</Link>
+                </li>
+                <li className="font-medium hover:underline">
+                  <Link href={"/user-dashboard"}>USER DASHBOARD</Link>
+                </li>
+              </>
+            ) : (
+              <li className="font-medium hover:underline">
+                <Link href={"/login"}>LOGIN</Link>
+              </li>
+            )}
           </ul>
         </div>
       )}
     </>
   );
 }
-
