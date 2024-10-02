@@ -1,9 +1,9 @@
-'use client'; // Asegúrate de colocar esta línea en la parte superior
+"use client";
 
-import React, { useEffect, useRef } from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/swiper-bundle.css'; // Importa los estilos de Swiper
-import Button from '../Button';
+import React, { useEffect, useRef } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/swiper-bundle.css";
+import Button from "../Button";
 
 const Carousel = () => {
   const swiperRef = useRef<any>(null);
@@ -12,41 +12,57 @@ const Carousel = () => {
     const swiper = swiperRef.current.swiper;
     const interval = setInterval(() => {
       swiper.slideNext();
-    }, 6000); // Cambia la diapositiva cada 3 segundos
+    }, 6000);
 
-    return () => clearInterval(interval); // Limpia el intervalo al desmontar el componente
+    return () => clearInterval(interval);
   }, []);
 
   return (
-    <div className="w-3/4 mx-auto h-[450px] rounded-lg overflow-hidden"> {/* Contenedor del carrusel */}
-      <Swiper
-        ref={swiperRef}
-        spaceBetween={10} // Espacio entre diapositivas
-        loop={true} // Repetir el carrusel al llegar al final
-        className="h-full"
-      >
+    <div className="w-3/4 mx-auto h-[450px] rounded-lg overflow-hidden">
+      <Swiper ref={swiperRef} spaceBetween={10} loop={true} className="h-full">
         <SwiperSlide className="relative">
-          <img src="https://www.apple.com/newsroom/images/2023/09/apple-introduces-the-advanced-new-apple-watch-series-9/article/Apple-Watch-S9-hero-230912_Full-Bleed-Image.jpg.large.jpg" alt="Image 1" className="w-full h-full object-cover" />
+          <img
+            src="https://www.apple.com/newsroom/images/2023/09/apple-introduces-the-advanced-new-apple-watch-series-9/article/Apple-Watch-S9-hero-230912_Full-Bleed-Image.jpg.large.jpg"
+            alt="Image 1"
+            className="w-full h-full object-cover"
+          />
           <div className="absolute bottom-0 left-0 p-4 text-white bg-black bg-opacity-50 w-full flex flex-col items-start justify-end">
             <h2 className="text-lg font-bold">Apple Watches</h2>
-            <p className="mt-2 mb-2">Smartwatches with fitness tracking, notifications, and customizable watch faces.</p>
-            <Button content='See more' redirectTo='/products/4'/>
+            <p className="mt-2 mb-2">
+              Smartwatches with fitness tracking, notifications, and
+              customizable watch faces.
+            </p>
+            <Button content="See more" redirectTo="/products/4" />
           </div>
         </SwiperSlide>
         <SwiperSlide className="relative">
-          <img src="https://www.apple.com/newsroom/images/2023/09/apple-unveils-iphone-15-pro-and-iphone-15-pro-max/tile/Apple-iPhone-15-Pro-lineup-hero-230912.jpg.landing-big_2x.jpg" alt="Image 2" className="w-full h-full object-cover" />
+          <img
+            src="https://www.apple.com/newsroom/images/2023/09/apple-unveils-iphone-15-pro-and-iphone-15-pro-max/tile/Apple-iPhone-15-Pro-lineup-hero-230912.jpg.landing-big_2x.jpg"
+            alt="Image 2"
+            className="w-full h-full object-cover"
+          />
           <div className="absolute bottom-0 left-0 p-4 text-white bg-black bg-opacity-50 w-full flex flex-col items-start justify-end">
             <h2 className="text-lg font-bold">iPhones</h2>
-            <p className="mt-2 mb-2">Smartphones with advanced features, touch screen, apps, and high-speed connectivity.</p>
-            <Button content='See more' redirectTo='/products/1'/>
+            <p className="mt-2 mb-2">
+              Smartphones with advanced features, touch screen, apps, and
+              high-speed connectivity.
+            </p>
+            <Button content="See more" redirectTo="/products/1" />
           </div>
         </SwiperSlide>
         <SwiperSlide className="relative">
-          <img src="https://www.apple.com/newsroom/images/2023/10/apple-unveils-new-macbook-pro-featuring-m3-chips/tile/Apple-MacBook-Pro-2up-231030.jpg.og.jpg?202408191739" alt="Image 3" className="w-full h-full object-cover" />
+          <img
+            src="https://www.apple.com/newsroom/images/2023/10/apple-unveils-new-macbook-pro-featuring-m3-chips/tile/Apple-MacBook-Pro-2up-231030.jpg.og.jpg?202408191739"
+            alt="Image 3"
+            className="w-full h-full object-cover"
+          />
           <div className="absolute bottom-0 left-0 p-4 text-white bg-black bg-opacity-50 w-full flex flex-col items-start justify-end">
             <h2 className="text-lg font-bold">MacBooks</h2>
-            <p className="mt-2 mb-2">Laptops with portability, powerful performance, and multitasking capabilities.</p>
-            <Button content='See more' redirectTo='/products/2'/>
+            <p className="mt-2 mb-2">
+              Laptops with portability, powerful performance, and multitasking
+              capabilities.
+            </p>
+            <Button content="See more" redirectTo="/products/2" />
           </div>
         </SwiperSlide>
       </Swiper>
@@ -55,7 +71,6 @@ const Carousel = () => {
 };
 
 export default Carousel;
-
 
 /* 
 https://www.apple.com/newsroom/images/2023/09/apple-introduces-the-advanced-new-apple-watch-series-9/article/Apple-Watch-S9-hero-230912_Full-Bleed-Image.jpg.large.jpg

@@ -2,7 +2,7 @@
 import { createContext, useEffect, useState } from "react";
 import { ILogin, IOrder, IUserResponse, IUserContextType, IUser } from "@/interfaces/interfaces";
 import { postSignIn, postSignUp } from "@/lib/server/fetchUsers";
-import { getOrders } from "@/lib/server/fetchOrders"; // Importamos la función para obtener órdenes
+import { getOrders } from "@/lib/server/fetchOrders"; 
 
 export const UserContext = createContext<IUserContextType>({
   user: null,
@@ -11,22 +11,18 @@ export const UserContext = createContext<IUserContextType>({
   setIsLogged: () => {},
   signIn: async () => false,
   signUp: async () => false,
-  orders: [],
   logOut: () => {},
 });
 
 export const UserProvider = ({ children }: { children: React.ReactNode }) => {
   const [user, setUser] = useState<Partial<IUserResponse> | null>(null);
   const [isLogged, setIsLogged] = useState(false);
-  const [orders, setOrders] = useState<IOrder[]>([]);
 
   const fetchUserOrders = async (token: string) => {
     try {
-      const fetchedOrders = await getOrders(token);
-      setOrders(fetchedOrders || []); // Almacenamos las órdenes
+      await getOrders(token);
     } catch (error) {
       console.error("Error al obtener las órdenes:", error);
-      setOrders([]);
     }
   };
 
@@ -66,7 +62,6 @@ export const UserProvider = ({ children }: { children: React.ReactNode }) => {
     localStorage.removeItem("user");
     localStorage.removeItem("token");
     setUser(null);
-    setOrders([]);
     setIsLogged(false);
   };
   
@@ -102,7 +97,6 @@ export const UserProvider = ({ children }: { children: React.ReactNode }) => {
         setIsLogged,
         signIn,
         signUp,
-        orders,
         logOut,
       }}
     >

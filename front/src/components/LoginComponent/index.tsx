@@ -6,8 +6,8 @@ import Link from "next/link";
 import React, { useContext } from "react";
 import { useRouter } from "next/navigation";
 import { UserContext } from "@/context/user";
-import Swal from 'sweetalert2';
-import withReactContent from 'sweetalert2-react-content';
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
 
 const MySwal = withReactContent(Swal);
 
@@ -20,33 +20,36 @@ export default function LoginComponent() {
     password: "",
   };
 
-  const handleSubmit = async (values: ILogin, { resetForm }: { resetForm: () => void }) => {
+  const handleSubmit = async (
+    values: ILogin,
+    { resetForm }: { resetForm: () => void }
+  ) => {
     const success = await signIn(values);
     if (success) {
       MySwal.fire({
-        title: 'Success!',
-        text: 'Successfully logged in!',
-        icon: 'success',
-        confirmButtonText: 'Cool'
+        title: "Success!",
+        text: "Successfully logged in!",
+        icon: "success",
+        confirmButtonText: "Cool",
       });
-    
-        router.push("/home");
+
+      router.push("/home");
     } else {
       MySwal.fire({
-        title: 'Ups!',
-        text: 'Something went wrong! Please check your credentials.',
-        icon: 'error'
+        title: "Ups!",
+        text: "Incorrect email or password",
+        icon: "warning",
       });
     }
     resetForm();
-};
-
+  };
 
   return (
     <div className="flex justify-center items-center min-h-screen ">
       <div className="w-full max-w-lg bg-black bg-opacity-50 p-10 text-white border-black rounded-2xl">
-        {/* Título */}
-        <h1 className="text-3xl font-bold text-center mb-6 text-pageColor">Welcome back, Sign In!</h1>
+        <h1 className="text-3xl font-bold text-center mb-6 text-pageColor">
+          Welcome back, Sign In!
+        </h1>
 
         <Formik
           initialValues={initialValues}

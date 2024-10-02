@@ -93,7 +93,6 @@ export interface IUserContextType {
     setIsLogged: (isLogged: boolean) => void
     signIn: (userCredential : ILogin) => Promise<boolean>
     signUp: (user: Omit<IUser, "id">) => Promise<boolean>
-    orders: IOrder[] | []
     logOut: () => void
 }
 

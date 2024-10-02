@@ -1,7 +1,7 @@
-import { IProduct, IProductsGridProps } from '@/interfaces/interfaces';
-import React from 'react';
-import ProductCard from '../ProductCard';
-import Title from '../Title';
+import { IProduct, IProductsGridProps } from "@/interfaces/interfaces";
+import React from "react";
+import ProductCard from "../ProductCard";
+import Title from "../Title";
 
 export default function ProductsGrid({ products, title }: IProductsGridProps) {
   return (

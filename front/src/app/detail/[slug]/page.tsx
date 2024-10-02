@@ -1,57 +1,50 @@
-import { fetchProductById } from '@/lib/server/fetchProducts';
-import { notFoundIcon } from '@/helpers/icons';
-import Link from 'next/link';
-import Image from 'next/image';
-import AddToCart from '@/components/AddToCart';
-import { IProduct } from '@/interfaces/interfaces';
+import { fetchProductById } from "@/lib/server/fetchProducts";
+import { notFoundIcon } from "@/helpers/icons";
+import Link from "next/link";
+import AddToCart from "@/components/AddToCart";
+import { IProduct } from "@/interfaces/interfaces";
 
-export default async function Detail({params}: {params: { slug: string };
-  }) {
-    const product : IProduct | null = await fetchProductById(params.slug);
-    if (!product) {
-        return (
-          <div className="pt-16 h-screen w-screen flex flex-col justify-center items-center text-white ">
-            {notFoundIcon}
-            <h2 className="text-3xl ">Product not found</h2>
-            <Link href="/home" className="text-zinc-800 text-pageColor">
-              Click here to return to the home page
-            </Link>
+export default async function Detail({ params }: { params: { slug: string } }) {
+  const product: IProduct | null = await fetchProductById(params.slug);
+  if (!product) {
+    return (
+      <div className="pt-16 h-screen w-screen flex flex-col justify-center items-center text-white ">
+        {notFoundIcon}
+        <h2 className="text-3xl ">Product not found</h2>
+        <Link href="/home" className="text-zinc-800 text-pageColor">
+          Click here to return to the home page
+        </Link>
+      </div>
+    );
+  }
+  return (
+    <section className="flex justify-center p-6 pt-20">
+      <div className="flex max-w-5xl w-full rounded-lg shadow-lg overflow-hidden justify-center items-center">
+        {product?.image && (
+          <img
+            className="relative h-[300px] w-auto sm:w-auto sm:h-[400px] md:h-[500px] md:w-auto lg:w-auto lg:h-[300px]"
+            src={product.image}
+          />
+        )}
+        <div className="flex flex-col justify-between text-white ml-4 w-1/2 p-4">
+          <h2 className="text-3xl font-bold">{product?.name}</h2>
+          <p className="text-xl font-semibold ">${product?.price}</p>
+          <div className="mt-2">
+            <h4 className="text-lg font-semibold border-b-2 border-pageColorHover text-pageColor pb-1">
+              DETAILS:
+            </h4>
+            <p className="mt-2">{product?.description}</p>
+            <p className="mt-1">
+              Stock: <span className="font-semibold">{product?.stock}u</span>
+            </p>
           </div>
-        );
-      }
-      return (
-        <section className="flex justify-center p-6 pt-20">
-          <div className="flex max-w-5xl w-full rounded-lg shadow-lg overflow-hidden justify-center items-center">
-            {/* Contenedor de la imagen */}
-           
-              {product?.image && (
-                <img className="relative h-[300px] w-auto sm:w-auto sm:h-[400px] md:h-[500px] md:w-auto lg:w-auto lg:h-[300px]" src={product.image}/>
-                
-              )}
-          
-      
-            {/* Contenedor de la información del producto */}
-            <div className="flex flex-col justify-between text-white ml-4 w-1/2 p-4">
-              <h2 className="text-3xl font-bold">{product?.name}</h2>
-              <p className="text-xl font-semibold ">${product?.price}</p>
-              <div className="mt-2">
-                <h4 className="text-lg font-semibold border-b-2 border-pageColorHover text-pageColor pb-1">DETAILS:</h4>
-                <p className="mt-2">{product?.description}</p>
-                <p className="mt-1">Stock: <span className="font-semibold">{product?.stock}u</span></p>
-              </div>
-              
-              {/* Botón de agregar al carrito */}
-              <div className="mt-4">
-                <AddToCart id={product.id}  />
-              </div>
-            </div>
+          <div className="mt-4">
+            <AddToCart id={product.id} />
           </div>
-        </section>
-      );
-      
-      
-      
-      
+        </div>
+      </div>
+    </section>
+  );
 }
 
 /*  <div className="relative h-[300px] w-[300px] sm:w-[400px] sm:h-[400px] md:h-[500px] md:w-[500px] lg:w-[300px] lg:h-[300px]"> */
@@ -93,7 +86,6 @@ export default async function Detail({params}: {params: { slug: string };
         </div>
       </div>
     </section> */
-
 
 /* return (
   <section className="bg-gray-900 p-8">
