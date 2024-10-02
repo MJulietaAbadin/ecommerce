@@ -1,16 +1,17 @@
 "use client";
-
 import { ICartContextType, IProduct } from "@/interfaces/interfaces";
 import { createOrder } from "@/lib/server/fetchOrders";
 import { fetchProductById } from "@/lib/server/fetchProducts";
 import { createContext, useEffect, useState } from "react";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
-
 const MySwal = withReactContent(Swal);
 
-const addItem = async (cartItems: IProduct[], product: number): Promise<IProduct[]> => {
-  const productExists = cartItems.find((item) => item.id === product);
+const addItem = async (
+  cartItems: IProduct[],
+  productId: number
+): Promise<IProduct[]> => {
+  const productExists = cartItems.find((item) => item.id === productId);
 
   if (productExists) {
     console.log("Product already in cart:", productExists);
@@ -23,12 +24,12 @@ const addItem = async (cartItems: IProduct[], product: number): Promise<IProduct
   }
 
   try {
-    const data = await fetchProductById(product.toString());
+    const data = await fetchProductById(productId.toString());
     if (!data) {
       console.error("Product not found");
       return cartItems;
     }
-const MySwal = withReactContent(Swal);
+    const MySwal = withReactContent(Swal);
     MySwal.fire({
       title: "Success!",
       text: "Product added to cart!",
@@ -91,7 +92,6 @@ export const CartProvider = ({ children }: { children: React.ReactNode }) => {
     localStorage.setItem("cartItems", JSON.stringify(cartItems));
     const total = cartItems.reduce((acc, item) => acc + item.price, 0);
     setTotal(total);
-    console.log("Updated total:", total);
   }, [cartItems]);
 
   const addToCart = async (product: number) => {
@@ -105,7 +105,6 @@ export const CartProvider = ({ children }: { children: React.ReactNode }) => {
   };
 
   const removeFromCart = (productId: number) => {
-    console.log("Removing from cart:", productId);
     setCartItems(removeItem(cartItems, productId));
   };
 
