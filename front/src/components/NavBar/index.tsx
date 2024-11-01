@@ -1,5 +1,5 @@
 "use client";
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Link from "next/link";
 import { cartIcon, userIcon } from "@/helpers/icons";
 import { UserContext } from "@/context/user";
@@ -25,6 +25,7 @@ export default function NavBar() {
           <Logo w={60} h={60} />
         </Link>
       </div>
+
       <div className="flex justify-center ">
         <ul className="flex text-sm font-bold">
           <li className="flex me-10 font-medium">
@@ -102,18 +103,6 @@ export default function NavBar() {
     </div>
   );
 }
-
-
-
-
-
-
-
-
-
-
-
-
 
 /* "use client";
 import React, { useContext, useState } from "react";

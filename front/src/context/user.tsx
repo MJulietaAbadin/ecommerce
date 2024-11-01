@@ -104,3 +104,43 @@ export const UserProvider = ({ children }: { children: React.ReactNode }) => {
     </UserContext.Provider>
   );
 };
+
+
+
+/* "use client"
+
+import { ILogin, IUser, IUserContext, IUserResponse } from "@/interfaces/interfaces"
+import { createContext, useState } from "react"
+
+export const UserContext = createContext<IUserContext>({
+    user: null,
+    setUser: () => {},
+    isLogged: false,
+    setIsLogged: () => {},
+    signIn: async () => false,
+    register: async () => false,
+    logOut: () => {},
+});
+
+export const UserProvider = ({ children }: { children: React.ReactNode }) => {
+    const [user, setUser] = useState<Partial<IUserResponse> | null>(null);
+    const [isLogged, setIsLogged] = useState<boolean>(false);
+
+    const signIn = async (credentials: ILogin): Promise<boolean> => {
+        try {
+            const data = await postSignIn(credentials);
+            setUser(data);
+            localStorage.setItem("user", JSON.stringify(data));
+            localStorage.setItem("token", data.token);
+            setIsLogged(true);
+            return true;
+        } catch (error) {
+            console.error(error);
+            return false;
+        }
+    };
+
+    
+
+
+} */
